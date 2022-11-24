@@ -1,0 +1,234 @@
+body {
+  display: flex;
+  margin: 0;
+  background-color: rgb(30, 246, 247);
+}
+
+.container {
+  width: 50%;
+  height: 100vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+
+.progress_container {
+  display: flex;
+  align-items: center;
+  flex-direction: column-reverse;
+}
+
+.load {
+  background-color: #008000;
+  color: #fff;
+  padding: 1.5vh;
+  border-radius: 40px;
+  font-size: 2.5vh;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.load:active + .progress > .progress__bar {
+  transform: scaleX(1);
+}
+
+.progress {
+  border: 2px solid #000000;
+  width: 500px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.progress__bar {
+  background-color: #008000;
+  height: 15px;
+  width: 485px;
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 1000ms cubic-bezier(0.32, 0, 0.07, 1);
+}
+
+.origin_container {
+  display: flex;
+  align-items: center;
+  flex-direction: column-reverse;
+  width: 100%;
+}
+
+.btn_origin {
+  background-color: rgb(255, 80, 109);
+  border: 2px solid rgb(225, 80, 109);
+  color: #fff;
+  margin-top: 2vh;
+  padding: 2vh;
+  cursor: pointer;
+}
+.btn_origin:hover + .boxes > .boxes--firstone {
+  transform: scale(1);
+}
+.btn_origin:hover + .boxes > .boxes--secondone {
+  transform: scale(1);
+}
+
+.boxes {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+.boxes--firstone {
+  transform-origin: left 50%;
+}
+.boxes--secondone {
+  transform-origin: right 50%;
+}
+.boxes__base {
+  color: #fff;
+  width: 150px;
+  height: 150px;
+  background-color: #008000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0);
+  transition: transform 500ms ease-in-out;
+}
+
+.boxes__base {
+  color: #fff;
+  width: 150px;
+  height: 150px;
+  background-color: #008000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button3d {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column-reverse;
+}
+.button3d .btn3d {
+  color: white;
+  font-size: 3.5rem;
+  cursor: pointer;
+  position: relative;
+  width: 25vw;
+  height: 7.5vw;
+  perspective: 500px;
+}
+.button3d .btn3d:active > .btn__flip {
+  transform: rotateX(-90deg);
+}
+.button3d .btn3d .btn__flip {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+  transform-origin: center bottom 3.75vw;
+  transition: transform 500ms cubic-bezier(0.7, 0.01, 0.23, 0.99);
+  transform: rotateX(0deg);
+}
+.button3d .btn3d .btn__flip .btn__flip--off {
+  transform: rotateX(0deg) translateZ(3.75vw);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #EE6352;
+}
+.button3d .btn3d .btn__flip .btn__flip--on {
+  transform: rotateX(90deg) translateZ(3.75vw);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #005929;
+}
+
+.container_2 {
+  width: 50%;
+  height: 100vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+
+.btn {
+  position: relative;
+  padding: 1.5vh;
+  font-size: 2.5vh;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 2rem;
+  background-color: #008000;
+  z-index: 1;
+}
+.btn:hover::after {
+  opacity: 1;
+}
+.btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  border-radius: 2rem;
+  background: radial-gradient(circle, #009a00 0%, #004d00 100%);
+  opacity: 0;
+  transition: opacity 250ms;
+  z-index: -1;
+}
+
+.nicobg {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+}
+
+.appear {
+  position: relative;
+  margin-top: 2vh;
+  background-color: #5c5c5c;
+  color: #fff;
+  border-radius: 40px;
+  padding: 2vh;
+  font-size: 2vh;
+  cursor: pointer;
+}
+.appear:hover + .donNico {
+  background-color: rgba(92, 92, 92, 0);
+}
+
+.donNico {
+  background-color: #5c5c5c;
+  transition: background-color 1000ms;
+}
+
+.Nico {
+  position: relative;
+  z-index: -1;
+}/*# sourceMappingURL=style.css.map */

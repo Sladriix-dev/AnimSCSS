@@ -1,0 +1,291 @@
+$prog-bar-dur: 1000ms;
+$prog-bar-delay: 250ms;
+$nico-delay: $prog-bar-dur + $prog-bar-delay*2;
+
+$cd_btn: #011c37;
+$cd_txt1: #15DEA5;
+$cd_box: #fff;
+$cd_txt2: #6300a0;
+$cd_txt_invalid: #fff;
+$cd_danger: #b20a37;
+$shake-intensity: 1.5%;
+
+$cd-bg: #008000;
+$cd-bg-reverse: #0E39F7;
+$size: 3vh;
+$num-bars: 5;
+$anim-dur: 1000ms;
+$anim-delay: $anim-dur / $num-bars;
+
+body {
+    display: flex;
+    margin: 0;
+    background-color: rgb(30, 246, 247);
+}
+
+.container {
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+.progress_container {
+    display: flex;
+    align-items: center;
+    flex-direction: column-reverse;
+}
+
+.charge {
+    background-color: $cd-bg;
+    color: #fff;
+    padding: 1.5vh;
+    border-radius: 40px;
+    font-size: 2.5vh;
+    cursor: pointer;
+    margin-top: 10px;
+
+    &:active {
+        &+.progress {
+            &>.progress__bar {
+                animation: progress-bar 1000ms forwards;
+                opacity: 0;
+            }
+        }
+    }
+}
+
+@keyframes progress-bar {
+    0% {
+        transform: scaleX(0);
+        opacity: .5;
+    }
+
+    17% {
+        transform: scaleX(.18);
+    }
+
+    24% {
+        transform: scaleX(.4);
+        animation-timing-function: cubic-bezier(.9, 0, .1, 1);
+    }
+
+    46% {
+        transform: scaleX(.81);
+        animation-timing-function: cubic-bezier(.25, 0, .25, 1);
+    }
+
+    85%,
+    100% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: scaleX(1);
+    }
+}
+
+.progress {
+    border: 2px solid #000000;
+    width: 500px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__bar {
+        background-color: $cd-bg;
+        height: 15px;
+        width: 485px;
+        transform-origin: left;
+        transform: scaleX(0);
+        transition: transform 1000ms cubic-bezier(.32, 0, .07, 1);
+    }
+}
+
+.progress_container2 {
+    display: flex;
+    align-items: center;
+    flex-direction: column-reverse;
+}
+
+.progress2 {
+    border: 2px solid #000000;
+    width: 500px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__bar2 {
+        background-color: $cd-bg;
+        height: 15px;
+        width: 485px;
+        transform-origin: left;
+        transform: scaleX(0);
+        animation: progress-bar $prog-bar-dur $prog-bar-delay both cubic-bezier(.9, 0, .1, 1);
+    }
+}
+
+.nico {
+    width: 45vw;
+    height: 30vw;
+    position: absolute;
+    overflow: hidden;
+    background-image: url("../assets/nico.jpg");
+    background-size: cover;
+    background-position: -20%;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: .1rem;
+    font-size: 4vw;
+    font-weight: 900;
+    color: #fff;
+    animation: nico 0ms $nico-delay both;
+}
+
+@keyframes nico {
+    0% {
+        transform: translateX(-9999px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.container2 {
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+label {
+    position: relative;
+    font-size: 4vh;
+    left: -15vh;
+}
+
+.form {
+    &__group {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        & input {
+            border: 2px solid $cd_box;
+            border-radius: 100rem;
+            color: $cd_txt2;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            outline: none;
+            padding: 5px 0 5px 15px;
+            width: 85%;
+
+            &:focus {
+                border: 2px solid $cd_txt2;
+            }
+
+            &:not(:focus):invalid {
+                background: $cd_danger;
+                border: 2px solid $cd_danger;
+                color: $cd_txt_invalid;
+                animation: headshake 100ms cubic-bezier(.4, .1, .6, .9);
+                animation-iteration-count: 3;
+            }
+        }
+    }
+}
+
+@keyframes headshake {
+    25% {
+        transform: translateX($shake-intensity);
+    }
+
+    75% {
+        transform: translateX(-$shake-intensity);
+    }
+}
+
+.load-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+span {
+    font-weight: bold;
+    margin: 15px 0 15px 0;
+}
+
+.load {
+    width: $size*10;
+    height: $size*7.5;
+    display: flex;
+    justify-content: space-evenly;
+
+    &__bar {
+        background-color: $cd-bg;
+        height: 100%;
+        width: $size;
+        animation: bars $anim-dur both infinite ease-in-out alternate;
+
+        @for $i from 1 through $num-bars {
+            &--#{$i} {
+                animation-delay: $anim-delay * $i;
+            }
+
+            &--#{$i}-inv {
+                animation-delay: $anim-delay * $i + random(100)*15ms;
+                animation-direction: alternate-reverse;
+                animation-fill-mode: forwards;
+                background-color: $cd-bg-reverse;
+
+                &:hover {
+                    animation-play-state: paused;
+                }
+            }
+        }
+    }
+}
+
+@keyframes bars {
+    0% {
+        transform: scaleY(0.25);
+    }
+
+    100% {
+        transform: scaleY(1);
+    }
+}
+
+.spin {
+    background-color: $cd-bg;
+    width: 15vh;
+    height: 15vh;
+    animation: spin 3s linear infinite paused;
+
+    &:hover {
+        animation-play-state: running;
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

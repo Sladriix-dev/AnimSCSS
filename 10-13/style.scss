@@ -1,0 +1,292 @@
+$cd-on: #59CD90;
+$cd-off: #EE6352;
+$persp: 500px;
+$btn-width: 25vw;
+$btn-height: 7.5vw;
+
+$cd_btn: #011c37;
+$cd-btn-start: rgba(1, 28, 55, 0);
+$cd-btn-end: rgba(1, 28, 55, 1);
+
+@mixin facet {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    display: flex;
+    margin: 0;
+    background-color: rgb(30, 246, 247);
+}
+
+.container {
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+.progress_container {
+    display: flex;
+    align-items: center;
+    flex-direction: column-reverse;
+}
+
+.load {
+    background-color: #008000;
+    color: #fff;
+    padding: 1.5vh;
+    border-radius: 40px;
+    font-size: 2.5vh;
+    cursor: pointer;
+    margin-top: 10px;
+
+    &:active {
+        &+.progress {
+            &>.progress__bar {
+                transform: scaleX(1);
+            }
+        }
+    }
+}
+
+.progress {
+    border: 2px solid #000000;
+    width: 500px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__bar {
+        background-color: #008000;
+        height: 15px;
+        width: 485px;
+        transform-origin: left;
+        transform: scaleX(0);
+        transition: transform 1000ms cubic-bezier(.32, 0, .07, 1);
+    }
+}
+
+.origin_container {
+    display: flex;
+    align-items: center;
+    flex-direction: column-reverse;
+    width: 100%;
+}
+
+.btn_origin {
+    background-color: rgb(255, 80, 109);
+    border: 2px solid rgb(225, 80, 109);
+    color: #fff;
+    margin-top: 2vh;
+    padding: 2vh;
+    cursor: pointer;
+
+    &:hover+.boxes {
+        &>.boxes--firstone {
+            transform: scale(1);
+        }
+
+        &>.boxes--secondone {
+            transform: scale(1);
+        }
+    }
+}
+
+.boxes {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+
+    &--firstone {
+        transform-origin: left 50%;
+    }
+
+    &--secondone {
+        transform-origin: right 50%;
+    }
+
+    &__base {
+        color: #fff;
+        width: 150px;
+        height: 150px;
+        background-color: #008000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform: scale(0);
+        transition: transform 500ms ease-in-out;
+    }
+}
+
+.boxes__base {
+    color: #fff;
+    width: 150px;
+    height: 150px;
+    background-color: #008000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+$cd-on: #005929;
+$cd-off: #EE6352;
+$persp: 500px;
+$btn-width: 25vw;
+$btn-height: 7.5vw;
+
+@mixin facet {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button3d {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column-reverse;
+
+    .btn3d {
+        color: white;
+        font-size: 3.5rem;
+        cursor: pointer;
+        position: relative;
+        width: $btn-width;
+        height: $btn-height;
+        perspective: $persp;
+
+        &:active {
+            &>.btn__flip {
+                transform: rotateX(-90deg);
+            }
+        }
+
+        .btn__flip {
+            @include facet;
+            transform-style: preserve-3d;
+            transform-origin: center bottom ($btn-height/2);
+            transition: transform 500ms cubic-bezier(.7, .01, .23, .99);
+            transform: rotateX(0deg);
+
+            .btn__flip--off {
+                transform: rotateX(0deg) translateZ($btn-height/2);
+                @include facet;
+                background: $cd-off;
+            }
+
+            .btn__flip--on {
+                transform: rotateX(90deg) translateZ($btn-height/2);
+                @include facet;
+                background: $cd-on;
+            }
+        }
+    }
+}
+
+$border-rad: 2rem;
+$clr-btn: #008000;
+$clr-primary: #15DEA5;
+
+.container_2 {
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+.btn {
+    position: relative;
+    padding: 1.5vh;
+    font-size: 2.5vh;
+    color: #fff;
+    cursor: pointer;
+    border-radius: $border-rad;
+    background-color: $clr-btn;
+    z-index: 1;
+
+    &:hover {
+        &::after {
+            opacity: 1;
+        }
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        border-radius: $border-rad;
+        background: radial-gradient(circle, lighten($clr-btn, 5) 0%, darken($clr-btn, 10) 100%);
+        opacity: 0;
+        transition: opacity 250ms;
+        z-index: -1;
+    }
+}
+
+@mixin pseudo-elem {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.nicobg {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+}
+
+.appear {
+    position: relative;
+    margin-top: 2vh;
+    background-color: #5c5c5c;
+    color: #fff;
+    border-radius: 40px;
+    padding: 2vh;
+    font-size: 2vh;
+    cursor: pointer;
+
+    &:hover+.donNico {
+        background-color: #5c5c5c00;
+    }
+
+}
+
+// Watchout !!!! Il y a du paint dans la perf
+// A cause du changement du background
+
+
+.donNico {
+    background-color: #5c5c5c;
+    transition: background-color 1000ms;
+}
+
+.Nico {
+    position: relative;
+    z-index: -1;
+}
