@@ -255,8 +255,8 @@ span {
           animation-delay: 200ms;
 }
 .load__bar--1-inv {
-  -webkit-animation-delay: 650ms;
-          animation-delay: 650ms;
+  -webkit-animation-delay: 1295ms;
+          animation-delay: 1295ms;
   animation-direction: alternate-reverse;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
@@ -271,8 +271,8 @@ span {
           animation-delay: 400ms;
 }
 .load__bar--2-inv {
-  -webkit-animation-delay: 955ms;
-          animation-delay: 955ms;
+  -webkit-animation-delay: 535ms;
+          animation-delay: 535ms;
   animation-direction: alternate-reverse;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
@@ -287,8 +287,8 @@ span {
           animation-delay: 600ms;
 }
 .load__bar--3-inv {
-  -webkit-animation-delay: 1860ms;
-          animation-delay: 1860ms;
+  -webkit-animation-delay: 1845ms;
+          animation-delay: 1845ms;
   animation-direction: alternate-reverse;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
@@ -303,8 +303,8 @@ span {
           animation-delay: 800ms;
 }
 .load__bar--4-inv {
-  -webkit-animation-delay: 1490ms;
-          animation-delay: 1490ms;
+  -webkit-animation-delay: 2180ms;
+          animation-delay: 2180ms;
   animation-direction: alternate-reverse;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
@@ -319,8 +319,8 @@ span {
           animation-delay: 1000ms;
 }
 .load__bar--5-inv {
-  -webkit-animation-delay: 1960ms;
-          animation-delay: 1960ms;
+  -webkit-animation-delay: 2245ms;
+          animation-delay: 2245ms;
   animation-direction: alternate-reverse;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;

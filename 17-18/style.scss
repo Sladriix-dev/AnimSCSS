@@ -1,6 +1,16 @@
 $cd-navy: #0E397F;
 $cd-mint: #28bc92;
 
+/*
+    *,                              |
+    ::before,                       |
+    ::after {                       |
+        box-sizing: border-box;      => Tout ceci permet un reset CSS 
+        margin: 0;                  |
+        padding: 0;                 |
+    }                               |
+*/
+
 body {
     display: flex;
     background-color: rgb(30, 246, 247);
