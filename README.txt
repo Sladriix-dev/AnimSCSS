@@ -9,3 +9,7 @@ Résumé du cours :
     créer des animations ayant de nombreuses étapes avec les keyframes ;
 
     créer une animation qui boucle à l’infini avec les propriétés d’itération et de direction.
+    
+    
+   Révision :
+    - 22/05/23
